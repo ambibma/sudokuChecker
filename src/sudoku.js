@@ -32,7 +32,43 @@ Sudoku.prototype.validateColumns = function () {
   return true;
 }
 
+Sudoku.prototype.validateSquares = function () {
+  for (let i=0; i<9; i+=3) {
+    let rows = this.grid.slice(i, i+3);
+    let square;
+    for (let j=0; j<9; j +=3) {
+      square = [];
+      rows.forEach(row =>{
+        square.push(...row.slice(j, j + 3))
+      });
+      console.log(square);
+      if(!this.validateCollection(square)){
+        return false;
+    }
+    
+    
+    }
+  };
+  return true;
+}
 
+// square = [4,5,6,1,2,3,7,8,9];
+
+// [
+//   ['4', '5', '6']
+//   [ '1', '2', '3', ],
+//   ['7', '8', '9'],
+
+//   ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+//   ['7', '8', '9', '1', '2', '3', '4', '5', '6'],
+//   ['4', '5', '6', '7', '8', '9', '1', '2', '3'],
+//   ['3', '1', '2', '8', '4', '5', '9', '6', '7'],
+//   ['6', '9', '7', '3', '1', '2', '8', '4', '5'],
+//   ['8', '4', '5', '6', '9', '7', '3', '1', '2'],
+//   ['2', '3', '1', '5', '7', '4', '6', '9', '8'],
+//   ['9', '6', '8', '2', '3', '1', '5', '7', '4'],
+//   ['5', '7', '4', '9', '6', '8', '2', '3', '1'],
+// ]
 
 // if (value) (this is the Boolean(x))
 

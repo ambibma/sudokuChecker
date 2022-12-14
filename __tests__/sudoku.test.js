@@ -55,6 +55,16 @@ describe('Sudoku', () => {
     sudoku.grid[0] = ['2', '2', '3', '4', '5', '6', '7', '8', '9'];
     expect(sudoku.validateColumns()).toEqual(false);
   });
+
+  test('it should return true if the given grid does not contain 3x3 squares with duplicate numbers', () =>{
+    expect(sudoku.validateSquares()).toEqual(true);
+  });  
+  
+  test('it should return false if the given grid does contain 3x3 squares with duplicate numbers', () =>{
+    sudoku.grid[0] = ['2', '2', '3', '4', '5', '6', '7', '8', '9'];
+    expect(sudoku.validateSquares()).toEqual(false);
+  }); 
+  
 });
 
   
