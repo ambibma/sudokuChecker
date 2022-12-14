@@ -15,9 +15,22 @@ Sudoku.prototype.validateRows = function () {
 }
 
 Sudoku.prototype.validateColumns = function () {
-  
+  // for i from 0 to 9
+  for (let i = 0; i<9; i++){
+    // construct new array
+    let column = [];
+    // grid.forEach
+    this.grid.forEach((row)=>{
+      // push the value at [i] into the new array
+      column.push(row[i]);
+    });
+    // feed to validateCollection
+    if (!this.validateCollection(column)){
+      return false;
+    }
+  };
+  return true;
 }
-
 
 
 
