@@ -37,9 +37,11 @@ describe('Sudoku', () => {
     expect(sudoku.validateCollection(sudoku.grid[0])).toEqual(false);
     expect(sudoku.validateCollection(sudoku.grid[1])).toEqual(false);
   });
+
   test('it should return true if the given grid does not contain rows with duplicate numbers', () =>{
     expect(sudoku.validateRows()).toEqual(true);
   });
+  
   test('it should return false if the given grid does contain rows with duplicate numbers', () =>{
     sudoku.grid[0] = ['1', '1', '3', '4', '5', '6', '7', '8', '9'];
     expect(sudoku.validateRows()).toEqual(false);

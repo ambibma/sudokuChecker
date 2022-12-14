@@ -11,12 +11,8 @@ Sudoku.prototype.validateCollection = function (arr) {
 }
 
 Sudoku.prototype.validateRows = function () {
-  
+  return this.grid.every(this.validateCollection);
 }
-
-
-
-
 
 
 
