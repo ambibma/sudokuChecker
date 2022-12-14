@@ -16,7 +16,7 @@ describe('Sudoku', () => {
       ['2', '3', '1', '5', '7', '4', '6', '9', '8'],
       ['9', '6', '8', '2', '3', '1', '5', '7', '4'],
       ['5', '7', '4', '9', '6', '8', '2', '3', '1'],
-    ]
+    ];
   });
 
   test ('it should return a sudoku object that has an empty 2d array with 9 rows and 9 columns', () => {
@@ -41,10 +41,19 @@ describe('Sudoku', () => {
   test('it should return true if the given grid does not contain rows with duplicate numbers', () =>{
     expect(sudoku.validateRows()).toEqual(true);
   });
-  
+
   test('it should return false if the given grid does contain rows with duplicate numbers', () =>{
     sudoku.grid[0] = ['1', '1', '3', '4', '5', '6', '7', '8', '9'];
     expect(sudoku.validateRows()).toEqual(false);
+  });
+
+  test('it should return true if the given grid does not contain columns with duplicate numbers', () =>{
+    expect(sudoku.validateColumns()).toEqual(true);
+  });
+
+  test('it should return false if the given grid does contain columns with duplicate numbers', () =>{
+    sudoku.grid[0] = ['2', '2', '3', '4', '5', '6', '7', '8', '9'];
+    expect(sudoku.validateColumns()).toEqual(false);
   });
 });
 

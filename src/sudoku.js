@@ -14,7 +14,9 @@ Sudoku.prototype.validateRows = function () {
   return this.grid.every(this.validateCollection);
 }
 
-
+Sudoku.prototype.validateColumns = function () {
+  
+}
 
 
 
