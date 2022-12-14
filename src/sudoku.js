@@ -44,9 +44,7 @@ Sudoku.prototype.validateSquares = function () {
       console.log(square);
       if(!this.validateCollection(square)){
         return false;
-    }
-    
-    
+      }
     }
   };
   return true;
