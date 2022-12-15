@@ -36,18 +36,11 @@ function generateBox(row, col){
   box.classList.add(['box-top', 'box-mid', 'box-bottom'][row % 3]);
   box.classList.add(['box-left', 'box-mid', 'box-right'][col % 3]);
   box.onpaste = box => box.preventDefault();
-  box.addEventListener('keypress', function (e) {
-    e.preventDefault();
-    e.target.value = String.fromCharCode(e.charCode);
-    assessRow(e.target.id.split('-')[0]);
-    assessColumn(e.target.id.split('-')[1]);
-    assessSquare(...e.target.id.split('-'));
-  });
+  box.addEventListener('keypress', keyPressHandler);
   box.addEventListener('keydown', function (e) {
     if (["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"].includes(e.key)) {
       e.preventDefault();
     }
-    
     if (e.key === "ArrowRight") {
       (document.getElementById(`${row}-${col + 1}`) || document.getElementById(`${row}-${col}`)).focus();
     } else if (e.key === "ArrowLeft") {
@@ -56,10 +49,20 @@ function generateBox(row, col){
       (document.getElementById(`${row - 1}-${col}`) || document.getElementById(`${row}-${col}`)).focus();
     } else if (e.key === "ArrowDown") {
       (document.getElementById(`${row + 1}-${col}`) || document.getElementById(`${row}-${col}`)).focus();
+    } else if (e.key === "Delete" || e.key === "Backspace") {
+      keyPressHandler(e);
     }
   });
   
   return box;
+}
+
+function keyPressHandler(e) {
+  e.preventDefault();
+  e.target.value = String.fromCharCode(e.charCode);
+  assessRow(e.target.id.split('-')[0]);
+  assessColumn(e.target.id.split('-')[1]);
+  assessSquare(...e.target.id.split('-'));
 }
 
 function insertIntoPuzzle(box) {
@@ -87,11 +90,9 @@ function puzzleResult(){
 
 function puzzleValidationHandler(event) {
   event.preventDefault();
-  //pull the form inputs into the grid
   const boxes = Array.from(document.getElementsByClassName('box-input'));
   boxes.forEach(insertIntoPuzzle);
   puzzleResult();
-  //console.log(sudoku.validatePuzzle());
 }
 
 function markRowInvalid(row) {
@@ -175,12 +176,10 @@ function buildRow(rowIndex) {
 }
 
 function buildSquare(rowIndex, colIndex) {
-  console.log(rowIndex)
   const boxes = Array.from(document.getElementsByClassName('box-input'));
   const indexMap = [['0', '1', '2'], ['3', '4', '5'], ['6', '7', '8']];
   const rowGroup = Math.floor(parseInt(rowIndex) / 3);
   const colGroup = Math.floor(parseInt(colIndex) / 3);
-  console.log(rowGroup);
   const square = boxes.filter(function (box) {
     
     const [rowIndex, colIndex] = box.id.split('-');
