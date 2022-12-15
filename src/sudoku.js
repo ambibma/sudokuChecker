@@ -41,7 +41,6 @@ Sudoku.prototype.validateSquares = function () {
       rows.forEach(row =>{
         square.push(...row.slice(j, j + 3));
       });
-      console.log(square);
       if(!this.validateCollection(square)){
         return false;
       }
@@ -51,11 +50,7 @@ Sudoku.prototype.validateSquares = function () {
 }
 
 Sudoku.prototype.validatePuzzle = function () {
-  // if (!this.validateSquares() || this.validateRows() || this.validateColumns()){
-  //   return false;
-  // }else{
-  //   return true;
-  // }
+  return this.validateSquares() && this.validateRows() && this.validateColumns();
 }
 
 // square = [4,5,6,1,2,3,7,8,9];
