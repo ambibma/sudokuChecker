@@ -64,6 +64,15 @@ describe('Sudoku', () => {
     sudoku.grid[0] = ['2', '2', '3', '4', '5', '6', '7', '8', '9'];
     expect(sudoku.validateSquares()).toEqual(false);
   }); 
+
+  test('it should return true if the given puzzle does not contain duplicates', () =>{
+    expect(sudoku.validatePuzzle().toEqual(true));
+  });
+
+  test('it should return false if the given puzzle does not contain duplicates', () =>{
+    sudoku.grid[0] = ['2', '2', '3', '4', '5', '6', '7', '8', '9'];
+    expect(sudoku.validatePuzzle().toEqual(false));
+  });
   
 });
 

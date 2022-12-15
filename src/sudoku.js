@@ -39,7 +39,7 @@ Sudoku.prototype.validateSquares = function () {
     for (let j=0; j<9; j +=3) {
       square = [];
       rows.forEach(row =>{
-        square.push(...row.slice(j, j + 3))
+        square.push(...row.slice(j, j + 3));
       });
       console.log(square);
       if(!this.validateCollection(square)){
@@ -48,6 +48,14 @@ Sudoku.prototype.validateSquares = function () {
     }
   };
   return true;
+}
+
+Sudoku.prototype.validatePuzzle = function () {
+  // if (!this.validateSquares() || this.validateRows() || this.validateColumns()){
+  //   return false;
+  // }else{
+  //   return true;
+  // }
 }
 
 // square = [4,5,6,1,2,3,7,8,9];
