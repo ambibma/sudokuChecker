@@ -53,6 +53,17 @@ Sudoku.prototype.validatePuzzle = function () {
   return this.validateSquares() && this.validateRows() && this.validateColumns();
 }
 
+Sudoku.prototype.checkWin = function() {
+  let counter = 0;
+  this.grid.forEach((row)=>{
+    const filteredArr = row.filter(x => Boolean(x));
+    counter+=filteredArr.length;
+  })
+  console.log(counter);
+  return (counter === 81);
+  // this.grid.map(row => row.filter(x => Boolean(x)).length === 9).every(x => Boolean(x);
+}
+
 // square = [4,5,6,1,2,3,7,8,9];
 
 // [
