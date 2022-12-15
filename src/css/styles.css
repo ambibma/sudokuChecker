@@ -1,0 +1,46 @@
+body {
+  background-color: lightblue;
+}
+
+/* Number input arrow removal for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#sudokuPuzzle {
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  text-align: center;
+}
+
+/* Number input arrow removal for Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+button{
+  text-align: center;
+}
+.hidden{
+  display:none;
+}
+#winMessage{
+  color:rgb(39, 215, 39);
+  text-align: center;
+}
+#loseMessage{
+  color: rgb(234, 140, 46);
+  text-align: center;
+}
+
+#progressMessage{
+  text-align: center;
+}
+
+#checkerButton{
+  margin-left: 45px;
+}
+

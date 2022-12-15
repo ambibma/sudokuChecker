@@ -61,7 +61,8 @@ Sudoku.prototype.checkWin = function() {
   })
   console.log(counter);
   return (counter === 81);
-  // this.grid.map(row => row.filter(x => Boolean(x)).length === 9).every(x => Boolean(x);
+  // return this.grid.every(row => row.filter(x => Boolean(x)).length === 9);
+  // return this.grid.reduce((a, b) => a + b.filter(x => Boolean(x)).length, 0) === 81;
 }
 
 // square = [4,5,6,1,2,3,7,8,9];
