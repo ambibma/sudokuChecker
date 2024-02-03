@@ -28,7 +28,7 @@ Sudoku.prototype.validateColumns = function () {
     if (!this.validateCollection(column)){
       return false;
     }
-  };
+  }
   return true;
 }
 
@@ -45,7 +45,7 @@ Sudoku.prototype.validateSquares = function () {
         return false;
       }
     }
-  };
+  }
   return true;
 }
 

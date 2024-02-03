@@ -20,7 +20,7 @@ function generateForm(){
   form.append(checkerButton);
   form.addEventListener("submit", puzzleValidationHandler);
   document.getElementById('sudokuPuzzle').append(form);
-};
+}
 
 function generateBox(row, col){
   // create the element

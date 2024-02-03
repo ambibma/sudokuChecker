@@ -14,7 +14,7 @@ module.exports = {
       verbose: true
     }),
     new HtmlWebpackPlugin({
-      title: 'Shape Tracker',
+      title: 'Sudoku Checker',
       template: './src/index.html',
       inject: 'body'
     })
